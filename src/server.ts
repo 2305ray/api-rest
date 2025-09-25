@@ -6,16 +6,17 @@ const app = express()
 
 app.use(express.json())
 
-app.use(myMiddleware)
+// global: app.use(myMiddleware)
 
-app.get("/products/:id/:user", (req, res) => {
+//local, em uma rota específica
+app.get("/products/:id/:user", myMiddleware, (req, res) => {
     const { page, limit } = req.query
 
     res.send(`Página ${page} de ${limit}`)
 })
 
 app.post("/products", (req, res) => {
-    const {name, price} = req.body
+    const { name, price } = req.body
 
     res.status(201).json([name, price])
 })
