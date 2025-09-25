@@ -1,9 +1,12 @@
 import express from 'express'
+import { myMiddleware } from './middlewares/my-middleware'
 
 const PORT = 4013
 const app = express()
 
 app.use(express.json())
+
+app.use(myMiddleware)
 
 app.get("/products/:id/:user", (req, res) => {
     const { page, limit } = req.query
