@@ -4,9 +4,9 @@ const PORT = 3333
 const app = express()
 
 app.get("/products/:id/:user", (req, res) => {
-    const { id, user } = req.params
+    const { page, limit } = req.query
 
-    res.send(`Produto ${id} do candidato ${user}`)
+    res.send(`Página ${page} de ${limit}`)
 })
 
 app.listen(PORT, () => console.log(`server is running at ${PORT}`))
