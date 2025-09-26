@@ -13,9 +13,10 @@ export class ProductsController {
 
     create(req: Request, res: Response) {
 
-        const bodySchema = z.object({
+        const bodySchema = z.object({//por padrão é obigatorio se n tiver nullish
             name: z.string().min(6, "Nome do produto tem que ter pelo menos 6 letras"),
             price: z.number().min(0, "Preço do produto não pode ser negativo")
+           // price: z.number().nullish()
         })
 
         const { name, price } = bodySchema.parse(req.body)
