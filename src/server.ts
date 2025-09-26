@@ -1,6 +1,6 @@
 import { routes } from './routes'
 import express, { Response, Request, NextFunction } from 'express'
-import { AppError } from './utils/AppErrors'
+import { AppError } from './utils/App-Errors'
 
 const PORT = 4013
 const app = express()

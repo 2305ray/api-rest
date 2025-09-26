@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { myMiddleware } from "../middlewares/my-middleware";
-import { ProductsController } from "../controllers/ProductController";
+import { ProductsController } from "../controllers/Product-Controller";
 
 
 export const productRoutes = Router()
