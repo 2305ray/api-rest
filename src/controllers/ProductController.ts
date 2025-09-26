@@ -1,4 +1,5 @@
 import { Response, Request } from "express";
+import { AppError } from "../utils/AppErrors";
 
 export class ProductsController {
     //ter no maximo 5 metodos
@@ -12,7 +13,7 @@ export class ProductsController {
     create(req: Request, res: Response) {
         const { name, price } = req.body
 
-        throw new Error("Erro inesperado.")
+        //throw new AppError("Erro ao criar produto")
 
         res.status(201).json({ name, price, user_id: req.user_id })
 
