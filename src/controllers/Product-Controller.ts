@@ -14,8 +14,8 @@ export class ProductsController {
     create(req: Request, res: Response) {
 
         const bodySchema = z.object({//por padrão é obigatorio se n tiver nullish
-            name: z.string().min(6, "Nome do produto tem que ter pelo menos 6 letras"),
-            price: z.number().min(0, "Preço do produto não pode ser negativo")
+            name: z.string({required_error: "Nome é requerido"}).min(6, "Nome do produto tem que ter pelo menos 6 letras"),
+            price: z.number({required_error: "Preço é requerido"}).min(0, "Preço do produto não pode ser negativo")
            // price: z.number().nullish()
         })
 
